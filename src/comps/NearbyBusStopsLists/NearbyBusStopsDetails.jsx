@@ -9,8 +9,7 @@ export const NearbyBusStopsDetails = ({ busStopCode }) => {
     useEffect(() => {
         getBusByBusStop(busStopCode)
             .then(res => setBuses(res.data.Services))
-        console.log("rendered")
-    }, [busStopCode])
+    }, [])
 
     const getMinutes = (expected) => {
         const time = new Date(expected).getTime();
