@@ -1,0 +1,6 @@
+FROM nginx:1.23.1-alpine
+ENV NODE_ENV=production
+COPY ./nginx.prod /etc/nginx
+RUN mkdir var/www
+COPY ./build /var/www
+EXPOSE 8080
