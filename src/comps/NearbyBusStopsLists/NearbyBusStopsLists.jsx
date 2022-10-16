@@ -17,8 +17,7 @@ export const NearbyBusStopsLists = () => {
         let geoWatch;
         if (navigator.geolocation) {
             geoWatch = navigator.geolocation.watchPosition(
-                pos => setGeo({ latitude: pos.coords.latitude, longitude: pos.coords.longitude }),
-                () => setGeoError("Enable Location to see nearby bus stops"))
+                pos => setGeo({ latitude: pos.coords.latitude, longitude: pos.coords.longitude }))
         }
         return () => {
             navigator.geolocation.clearWatch(geoWatch)
