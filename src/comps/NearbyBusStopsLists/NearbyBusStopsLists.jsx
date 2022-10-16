@@ -75,11 +75,14 @@ export const NearbyBusStopsLists = () => {
                     <Accordion expanded={expanded === index} onChange={handleChange(index)} key={index}>
                         <AccordionSummary>
                             <Grid container spacing={2} paddingX={3}>
-                                <Grid xs={6}>
+                                <Grid item xs={4}>
                                     <Typography>{value.RoadName}</Typography>
                                 </Grid>
-                                <Grid xs={6}>
+                                <Grid item xs={4}>
                                     <Typography>{value.Description}</Typography>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <Typography>Code: ({value.BusStopCode})</Typography>
                                 </Grid>
                             </Grid>
                         </AccordionSummary>
