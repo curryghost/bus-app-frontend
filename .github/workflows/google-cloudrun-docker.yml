@@ -92,8 +92,11 @@ jobs:
           password: '${{ steps.auth.outputs.access_token }}'
           registry: '${{ env.GAR_LOCATION }}-docker.pkg.dev'
       
-      - name: npm setup
-        run: npm run build
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-vaersion: 16
+          run: npm i --prod && npm run build
 
       - name: Build and Push Container
         run: |-
