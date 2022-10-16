@@ -1,4 +1,4 @@
-import { Divider, List, ListItem, ListItemText, Typography } from "@mui/material"
+import { Divider, List, ListItem, ListItemText } from "@mui/material"
 import { useState } from "react"
 import { useEffect } from "react"
 import { getBusByBusStop } from "../../api/api"
@@ -9,7 +9,7 @@ export const NearbyBusStopsDetails = ({ busStopCode }) => {
     useEffect(() => {
         getBusByBusStop(busStopCode)
             .then(res => setBuses(res.data.Services))
-    })
+    }, [])
 
     const getMinutes = (expected) => {
         const time = new Date(expected).getTime();

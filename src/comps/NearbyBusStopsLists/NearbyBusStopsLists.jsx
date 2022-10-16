@@ -41,7 +41,7 @@ export const NearbyBusStopsLists = () => {
         if (unit === "N") { dist = dist * 0.8684 }
         return dist
     }
-
+    /* eslint-disable */
     const memoizedNearestBustop = useMemo(() => {
         let nearestBusStop = [];
         busStop.forEach((value) => {
@@ -62,6 +62,7 @@ export const NearbyBusStopsLists = () => {
         })
         return nearestBusStop;
     }, [geo.latitude, geo.longitude])
+    /* eslint-disable */
 
     const handleChange = (index) => (event, newExpanded) => {
         setExpanded(newExpanded ? index : false);
