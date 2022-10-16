@@ -8,7 +8,7 @@ export const busStopSlice = createSlice({
     },
     reducers: {
         initStateAsync: state => {
-            if (localStorage.getItem('busStop') === null || undefined) {
+            if (localStorage.getItem('busStop') == null || undefined) {
                 getBusStops().then(res => {
                     localStorage.setItem('busStop', JSON.stringify(res.data));
                 });
