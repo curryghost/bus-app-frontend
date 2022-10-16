@@ -11,12 +11,11 @@ import { initStateAsync } from './store/busStopSlice';
 function App() {
   const dispatch = useDispatch();
 
-  /* eslint disable */
-
+  /* eslint-disable */
   useEffect(() => {
     dispatch(initStateAsync())
   }, [])
-  /* eslint disable */
+  /* eslint-disable */
 
   return (
     <ThemeProvider theme={theme}>
