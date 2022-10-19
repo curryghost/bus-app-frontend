@@ -23,7 +23,7 @@ function App() {
       dispatch(initStateAsync(JSON.parse(localStorage.getItem('busStop'))))
     }
 
-  }, [])
+  }, [dispatch])
 
   return (
     <ThemeProvider theme={theme}>
