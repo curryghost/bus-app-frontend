@@ -7,15 +7,23 @@ import { Home } from './page/Home';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { initStateAsync } from './store/busStopSlice';
+import { getBusStops } from './api/api';
 
 function App() {
   const dispatch = useDispatch();
 
-  /* eslint-disable */
   useEffect(() => {
-    dispatch(initStateAsync())
+    if (localStorage.getItem('busStop') == null || undefined) {
+      getBusStops()
+        .then(res => {
+          localStorage.setItem('busStop', JSON.stringify(res.data))
+          dispatch(initStateAsync(JSON.parse(localStorage.getItem('busStop'))))
+        })
+    } else {
+      dispatch(initStateAsync(JSON.parse(localStorage.getItem('busStop'))))
+    }
+
   }, [])
-  /* eslint-disable */
 
   return (
     <ThemeProvider theme={theme}>

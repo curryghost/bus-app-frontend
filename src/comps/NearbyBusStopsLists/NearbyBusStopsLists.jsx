@@ -10,7 +10,6 @@ export const NearbyBusStopsLists = () => {
         latitude: "",
         longitude: ""
     })
-
     const [expanded, setExpanded] = useState(false)
 
     useEffect(() => {
@@ -19,11 +18,8 @@ export const NearbyBusStopsLists = () => {
             geoWatch = navigator.geolocation.watchPosition(
                 pos => setGeo({ latitude: pos.coords.latitude, longitude: pos.coords.longitude }))
         }
-        return () => {
-            navigator.geolocation.clearWatch(geoWatch)
-        };
+        return () => navigator.geolocation.clearWatch(geoWatch)
     }, [])
-
 
     const getDistance = (lat1, lon1, lat2, lon2, unit) => {
         var radlat1 = Math.PI * lat1 / 180
@@ -41,7 +37,6 @@ export const NearbyBusStopsLists = () => {
         if (unit === "N") { dist = dist * 0.8684 }
         return dist
     }
-    /* eslint-disable */
     const memoizedNearestBustop = useMemo(() => {
         let nearestBusStop = [];
         busStop.forEach((value) => {
@@ -61,8 +56,7 @@ export const NearbyBusStopsLists = () => {
             }
         })
         return nearestBusStop;
-    }, [geo.latitude, geo.longitude])
-    /* eslint-disable */
+    }, [geo.latitude, geo.longitude, busStop])
 
     const handleChange = (index) => (event, newExpanded) => {
         setExpanded(newExpanded ? index : false);
