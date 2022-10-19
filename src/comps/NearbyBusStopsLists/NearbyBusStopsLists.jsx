@@ -50,7 +50,6 @@ export const NearbyBusStopsLists = () => {
                     if (nearStop.distance > dist) {
                         nearestBusStop.splice(index, 1, { ...value, distance: dist })
                         nearestBusStop.pop()
-                        return
                     }
                 })
             }

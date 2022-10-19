@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getBusStops } from "../api/api";
 
 export const busStopSlice = createSlice({
     name: 'busStop',
