@@ -7,11 +7,11 @@ export const NearbyBusStopsDetails = ({ busStopCode, index, expanded }) => {
     const [buses, setBuses] = useState([]);
 
     useEffect(() => {
-        if (expanded == index) {
+        if (expanded === index) {
             getBusByBusStop(busStopCode)
                 .then(res => setBuses(res.data.Services))
         }
-    }, [busStopCode, expanded]);
+    }, [busStopCode, expanded, index]);
 
     const getMinutes = (expected) => {
         const time = new Date(expected).getTime();
