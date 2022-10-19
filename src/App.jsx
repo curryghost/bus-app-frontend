@@ -13,7 +13,15 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getBusStops().then(res => dispatch(initStateAsync(res.data)))
+    if (localStorage.getItem('busStop') == null || undefined) {
+      getBusStops()
+        .then(res => {
+          localStorage.setItem('busStop', JSON.stringify(res.data))
+          dispatch(initStateAsync(JSON.parse(localStorage.getItem('busStop'))))
+        })
+    } else {
+      dispatch(initStateAsync(JSON.parse(localStorage.getItem('busStop'))))
+    }
   }, [dispatch])
 
   return (

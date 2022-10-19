@@ -3,13 +3,15 @@ import { useState } from "react"
 import { useEffect } from "react"
 import { getBusByBusStop } from "../../api/api"
 
-export const NearbyBusStopsDetails = ({ busStopCode }) => {
+export const NearbyBusStopsDetails = ({ busStopCode, index, expanded }) => {
     const [buses, setBuses] = useState([]);
 
     useEffect(() => {
-        getBusByBusStop(busStopCode)
-            .then(res => setBuses(res.data.Services))
-    }, [busStopCode]);
+        if (expanded == index) {
+            getBusByBusStop(busStopCode)
+                .then(res => setBuses(res.data.Services))
+        }
+    }, [busStopCode, expanded]);
 
     const getMinutes = (expected) => {
         const time = new Date(expected).getTime();

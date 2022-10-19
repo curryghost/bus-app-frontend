@@ -80,7 +80,7 @@ export const NearbyBusStopsLists = () => {
                             </Grid>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <NearbyBusStopsDetails busStopCode={value.BusStopCode} />
+                            <NearbyBusStopsDetails busStopCode={value.BusStopCode} index={index} expanded={expanded} />
                         </AccordionDetails>
                     </Accordion>
                 )
