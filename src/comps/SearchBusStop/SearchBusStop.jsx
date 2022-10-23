@@ -17,7 +17,8 @@ export const SearchBusStop = ({ input }) => {
                 bus.BusStopCode.toLowerCase().includes(inputLow))
             setMemoBusStop({ ...memoBusStop, [input.toLowerCase()]: filtered.splice(0, 100) })
         }
-    })
+        console.log("called")
+    }, [memoBusStop, input, busStop, inputLow])
 
     return (
         memoBusStop[inputLow] && <BusStopLists busStop={memoBusStop[inputLow]} />
