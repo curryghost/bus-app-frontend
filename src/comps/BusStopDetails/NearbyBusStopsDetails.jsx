@@ -5,7 +5,7 @@ import { getBusByBusStop } from "../../api/api";
 import sd from '../../assets/sd.png';
 import dd from '../../assets/dd.png';
 
-export const NearbyBusStopsDetails = ({ busStopCode, index, expanded }) => {
+export const BusStopsDetails = ({ busStopCode, index, expanded }) => {
     const [buses, setBuses] = useState([]);
 
     useEffect(() => {
