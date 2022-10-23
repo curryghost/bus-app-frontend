@@ -1,4 +1,4 @@
-import { Typography, useTheme } from "@mui/material";
+import { Typography } from "@mui/material";
 import { NearbyBusStopsLists } from "../comps/NearbyBusStopsLists/NearbyBusStopsLists";
 
 export const Home = () => {

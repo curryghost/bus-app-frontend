@@ -1,4 +1,4 @@
-import { Box, Divider, Icon, List, ListItem, ListItemText } from "@mui/material"
+import { Box, Divider, List, ListItem, ListItemText } from "@mui/material"
 import { useState } from "react";
 import { useEffect } from "react";
 import { getBusByBusStop } from "../../api/api";
@@ -42,17 +42,17 @@ export const NearbyBusStopsDetails = ({ busStopCode, index, expanded }) => {
                         <ListItemText primary={`Bus: ${value.ServiceNo}`} sx={{ color: 'black' }} />
                         {isNaN(getMinutes(value.NextBus.EstimatedArrival)) ? <ListItemText inset={true} /> : <>
                             <span style={{ height: '2rem', width: '.5rem', backgroundColor: checkLoad(value.NextBus.Load), marginRight: '1rem' }}></span>
-                            <img src={value.NextBus.Type == 'SD' ? sd : dd} style={{ height: '2rem' }} />
+                            <img src={value.NextBus.Type === 'SD' ? sd : dd} style={{ height: '2rem' }} alt='bus' />
                             <ListItemText inset={true} secondary={`${getMinutes(value.NextBus.EstimatedArrival)} mins`} />
                         </>}
                         {isNaN(getMinutes(value.NextBus2.EstimatedArrival)) ? <ListItemText inset={true} /> : <>
                             <span style={{ height: '2rem', width: '.5rem', backgroundColor: checkLoad(value.NextBus2.Load), marginRight: '1rem' }}></span>
-                            <img src={value.NextBus2.Type == 'SD' ? sd : dd} style={{ height: '2rem' }} />
+                            <img src={value.NextBus2.Type === 'SD' ? sd : dd} style={{ height: '2rem' }} alt='bus' />
                             <ListItemText inset={true} secondary={`${getMinutes(value.NextBus2.EstimatedArrival)} mins`} />
                         </>}
                         {isNaN(getMinutes(value.NextBus3.EstimatedArrival)) ? <ListItemText inset={true} /> : <>
                             <span style={{ height: '2rem', width: '.5rem', backgroundColor: checkLoad(value.NextBus3.Load), marginRight: '1rem' }}></span>
-                            <img src={value.NextBus3.Type == 'SD' ? sd : dd} style={{ height: '2rem' }} />
+                            <img src={value.NextBus3.Type === 'SD' ? sd : dd} style={{ height: '2rem' }} alt='bus' />
                             <ListItemText inset={true} secondary={`${getMinutes(value.NextBus3.EstimatedArrival)} mins`} />
                         </>}
                     </ListItem>

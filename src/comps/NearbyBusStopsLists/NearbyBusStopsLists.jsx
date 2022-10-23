@@ -1,4 +1,4 @@
-import { Accordion, AccordionDetails, AccordionSummary, colors, Grid, Typography, useTheme } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Grid, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { useEffect, useState, useMemo } from "react"
 import { useSelector } from "react-redux";
