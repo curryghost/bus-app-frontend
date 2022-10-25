@@ -1,5 +1,5 @@
 import SearchIcon from '@mui/icons-material/Search';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useState } from 'react';
 import './FloatingSearch.scss';
 
@@ -14,13 +14,13 @@ export const FloatingSearch = ({ input, handleChange }) => {
         setExpand(!expand);
     }
 
-    const handleListener = e => {
+    const handleListener = useCallback(e => {
         if (!e.target.contains(inputRef.current))
             if (expand) {
                 setExpand(false)
                 document.removeEventListener('click', handleListener)
             }
-    }
+    })
 
     useEffect(() => {
         expand && document.addEventListener('click', handleListener);
