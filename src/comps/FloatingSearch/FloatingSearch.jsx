@@ -20,7 +20,7 @@ export const FloatingSearch = ({ input, handleChange }) => {
                 setExpand(false)
                 document.removeEventListener('click', handleListener)
             }
-    })
+    }, [expand])
 
     useEffect(() => {
         expand && document.addEventListener('click', handleListener);
