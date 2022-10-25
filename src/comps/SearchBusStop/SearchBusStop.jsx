@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 import { BusStopLists } from "../BusStopLists/BusStopLists";
 
 export const SearchBusStop = ({ input }) => {
@@ -17,7 +17,6 @@ export const SearchBusStop = ({ input }) => {
                 bus.BusStopCode.toLowerCase().includes(inputLow))
             setMemoBusStop({ ...memoBusStop, [input.toLowerCase()]: filtered.splice(0, 100) })
         }
-        console.log("called")
     }, [memoBusStop, input, busStop, inputLow])
 
     return (
