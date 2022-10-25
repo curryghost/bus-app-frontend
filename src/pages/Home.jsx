@@ -4,27 +4,25 @@ import { NearbyBusStopsLists } from "../comps/NearbyBusStopsLists/NearbyBusStops
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from "react";
 import { SearchBusStop } from "../comps/SearchBusStop/SearchBusStop";
+import { FloatingSearch } from "../comps/FloatingSearch/FloatingSearch";
+import { useEffect } from "react";
 
 export const Home = () => {
+    const [heading, setHeading] = useState('Nearby Bus Stops')
     const [input, setInput] = useState("");
 
     const handleChange = (e) => {
-        setInput(e.target.value)
+        setInput(e.target.value);
     }
+
+    useEffect(() => {
+        input === '' ? setHeading('Nearby Bus Stops') : setHeading('Search Bus Stops')
+    }, [input])
 
     return (
         <>
-            <Grid2 container flexDirection='column' alignItems='center' disableGutters={true} sx={{ bgcolor: 'secondary.main' }}>
-                <Typography variant="h5" textAlign='center' fontWeight='600' bgcolor='secondary.main' color='#fff' sx={{ py: 3 }}>Nearby Bus</Typography>
-                <Grid2 >
-                    <FormControl
-                        sx={{ m: 1 }}>
-                        <InputLabel htmlFor="search" sx={{ color: '#fff', '&.Mui-focused': { color: '#fff' } }}>Search</InputLabel>
-                        <Input id="search" value={input} onChange={handleChange} endAdornment={<SearchIcon sx={{ color: '#fff' }} />}
-                            sx={{ color: '#fff', '::before': { borderBottom: '1px solid #fff' }, '::after': { borderBottom: '1px solid #fff' }, borderBottom: '1px solid #fff' }} />
-                    </FormControl>
-                </Grid2>
-            </Grid2>
+            <FloatingSearch input={input} handleChange={handleChange} />
+            <Typography variant="h5" textAlign='center' fontWeight='600' bgcolor='secondary.main' color='#fff' sx={{ py: 3 }}>{heading}</Typography>
             {input === "" ? <NearbyBusStopsLists /> : <SearchBusStop input={input} />}
         </>
     )

@@ -2,7 +2,7 @@ import { ThemeProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import './App.css';
 import { theme } from './theme';
-import { Navbar } from './comps/navbar/Navbar'
+import { Navbar } from './comps/Navbar/Navbar'
 import { Home } from './pages/Home';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
