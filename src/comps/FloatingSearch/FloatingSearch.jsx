@@ -24,13 +24,9 @@ export const FloatingSearch = ({ input, handleChange }) => {
 
     useEffect(() => {
         expand && document.addEventListener('click', handleListener);
-        return () => document.removeEventListener('click', handleListener)
-    }, [expand])
-
-    useEffect(() => {
         expand && inputRef.current.focus();
-    }, [expand])
-
+        return () => document.removeEventListener('click', handleListener)
+    }, [expand, handleListener])
 
     return (
         <span className={'wrapper ' + (expand || 'fade')} >

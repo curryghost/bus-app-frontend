@@ -1,7 +1,5 @@
-import { Typography, FormControl, InputLabel, Input } from "@mui/material";
-import Grid2 from '@mui/material/Unstable_Grid2';
+import { Typography } from "@mui/material";
 import { NearbyBusStopsLists } from "../comps/NearbyBusStopsLists/NearbyBusStopsLists";
-import SearchIcon from '@mui/icons-material/Search';
 import { useState } from "react";
 import { SearchBusStop } from "../comps/SearchBusStop/SearchBusStop";
 import { FloatingSearch } from "../comps/FloatingSearch/FloatingSearch";
