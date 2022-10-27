@@ -1,4 +1,4 @@
-import { BusStopsDetails } from "../BusStopDetails/NearbyBusStopsDetails"
+import { BusStopsDetails } from "../BusStopsDetails/BusStopsDetails"
 import { Container, Accordion, AccordionSummary, AccordionDetails, Grid, Typography } from "@mui/material"
 import { useState } from "react"
 
