@@ -28,18 +28,25 @@ export const FloatingSearch = ({ input, handleChange }) => {
         wrapperRef.current.style.left = `${clientX}px`
         console.log(clientX)
     }
+
+    const touchHandler = (e) => {
+        wrapperRef.current.style.top = `${e.changedTouches[0].clientY}px`;
+        wrapperRef.current.style.left = `${e.changedTouches[0].clientX}px`;
+    }
+
     useEffect(() => {
         expand && document.addEventListener('click', handleListener);
         expand && inputRef.current.focus();
         return () => document.removeEventListener('click', handleListener)
     }, [expand, handleListener])
 
+
     return (
         <span className={'wrapper ' + (expand || 'fade')} ref={wrapperRef} style={{ top: '80vh', left: '80vw' }} >
-            <span className='icon' onClick={handleClick} draggable onDragEnd={dragHandler}>
+            <span className='icon' onClick={handleClick} draggable onDragEnd={dragHandler} onTouchMove={touchHandler} >
                 <SearchIcon sx={{ fontSize: '3rem', position: 'relative', top: '3px', left: '3px' }} />
             </span>
             <input ref={inputRef} value={input} onChange={handleChange} type="text" className={expand ? 'expand' : ''} />
-        </span>
+        </span >
     )
 }
