@@ -27,18 +27,18 @@ export const RowDetails = ({ value, index }) => {
     const busType = (type) => {
         switch (type) {
             case 'SD':
-                return sd
+                return { type: dd, alt: 'Single deck' }
             case 'DD':
-                return dd
+                return { type: dd, alt: 'Double deck' }
             default:
-                return ''
+                return { type: '', alt: '' }
         }
     }
 
     const arrivingDetails = arrivingBus.map((bus, i) =>
         <div className="bus" key={i}>
             <span style={bus.Load ? { backgroundColor: checkLoad(bus.Load) } : {}}></span>
-            <img src={busType(bus.Type)} />
+            <img src={busType(bus.Type).type} alt={busType(bus.Type).alt} />
             <p>{!isNaN(getMinutes(bus.EstimatedArrival)) ? `${getMinutes(bus.EstimatedArrival)} mins` : ''}</p>
         </div>
     )
