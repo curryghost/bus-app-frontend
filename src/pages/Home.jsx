@@ -14,7 +14,7 @@ export const Home = () => {
     }
 
     useEffect(() => {
-        input === '' ? setHeading('Nearby Bus Stops') : setHeading('Search Bus Stops')
+        input === '' ? setHeading('Nearby Bus Stops') : setHeading(input)
     }, [input])
 
     return (

@@ -42,7 +42,7 @@ export const FloatingSearch = ({ input, handleChange }) => {
 
 
     return (
-        <span className={'wrapper ' + (expand || 'fade')} ref={wrapperRef} style={{ top: '80vh', left: '80vw' }} >
+        <span className={'wrapper ' + (expand || 'fade')} ref={wrapperRef} style={{ top: '70vh', left: '80vw' }} >
             <span className='icon' onClick={handleClick} draggable onDragEnd={dragHandler} onTouchMove={touchHandler} >
                 <SearchIcon sx={{ fontSize: '3rem', position: 'relative', top: '3px', left: '3px' }} />
             </span>
