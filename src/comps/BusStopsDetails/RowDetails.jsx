@@ -1,4 +1,3 @@
-import { Box, ListItem, ListItemText, Divider } from "@mui/material"
 import sd from '../../assets/sd.png';
 import dd from '../../assets/dd.png';
 import './RowDetails.scss'
