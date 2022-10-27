@@ -27,7 +27,7 @@ export const RowDetails = ({ value, index }) => {
     const busType = (type) => {
         switch (type) {
             case 'SD':
-                return { type: dd, alt: 'Single deck' }
+                return { type: sd, alt: 'Single deck' }
             case 'DD':
                 return { type: dd, alt: 'Double deck' }
             default:
